@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">technokratos</string>
+    <string name="your_name">Нажмите на кнопку Получить данные</string>
+    <string name="get_items">Получить данные</string>
+</resources>
