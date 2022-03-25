@@ -37,7 +37,7 @@ class QuestListViewModel(application: Application) : AndroidViewModel(applicatio
                 questApi.getQuestList()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe { posts ->
+                    .subscribe ({ posts ->
                         displayItem(posts)
                         status = true
                         name = posts?.results?.first()?.name?.first.toString()
@@ -53,8 +53,9 @@ class QuestListViewModel(application: Application) : AndroidViewModel(applicatio
                             posts?.results?.first()?.location?.coordinates?.latitude.toString()
                         coordinatesLongitude =
                             posts?.results?.first()?.location?.coordinates?.longitude.toString()
-
-                    }
+                    }, {
+                        Log.e("ERROR","error")
+                    })
             )
         }
     }
