@@ -37,6 +37,7 @@ class QuestListViewModel(application: Application) : AndroidViewModel(applicatio
                 questApi.getQuestList()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
+                    .timeout(7, TimeUnit.SECONDS)
                     .subscribe ({ posts ->
                         displayItem(posts)
                         status = true
